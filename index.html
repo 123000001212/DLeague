@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.zhimg.com/element-ui@2.15.10/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.zhimg.com/element-ui@2.15.10/lib/index.js"></script>
+    <title>DL</title>
+</head>
+<body>
+    <div id="app" class="app">
+    <h4 class="MuiTypography-root MuiTypography-h4 css-z2oei0" style="margin-bottom: 32px;">第一届电League</h4>
+
+    <el-tabs v-model="activeName" @tab-click="handleClick">
+        <!--参赛队伍-->
+            <el-tab-pane label="参赛队伍" name="first">
+                <el-row :gutter="20">
+                <el-col :span="6"><div class="grid-content bg-purple" style="padding-bottom: 5px;">
+                    <h3 style="text-align: center;margin-bottom: 10px;">国士无双</h3>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(0)>我爱手抓肉</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(1)>凛时、雨落</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(2)>南风y</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(3)>广羽缪璆</el-link></h4>
+                </div></el-col>
+                <el-col :span="6"><div class="grid-content bg-purple" style="padding-bottom: 5px;">
+                    <h3 style="text-align: center;margin-bottom: 10px;">雀山联合</h3>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(4)>sengwei</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(5)>雀实糊了啊</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(6)>koala1230</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(7)>西电杨宗凯</el-link></h4>
+                </div></el-col><el-col :span="6"><div class="grid-content bg-purple" style="padding-bottom: 5px;">
+                    <h3 style="text-align: center;margin-bottom: 10px;">痛苦面具</h3>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(8)>慷忾</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(9)>Flamingo_Li</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(10)>博士什么什么</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(11)>幸福的勇气</el-link></h4>
+                </div></el-col><el-col :span="6"><div class="grid-content bg-purple" style="padding-bottom: 5px;">
+                    <h3 style="text-align: center;margin-bottom: 10px;">金场战神</h3>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(12)>KissingLover</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(13)>奇奇、</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(14)>昌朋朋</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(15)>しちゃんqwq</el-link></h4>
+                </div></el-col>
+            </el-row>
+            <el-row :gutter="20">
+                <el-col :span="6"><div class="grid-content bg-purple" style="padding-bottom: 5px;">
+                    <h3 style="text-align: center;margin-bottom: 10px;">非日常麻雀结社</h3>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(16)>唤灵</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(17)>妄谓</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(18)>20220101</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(19)>Paranoia零羽</el-link></h4>
+                </div></el-col><el-col :span="6"><div class="grid-content bg-purple" style="padding-bottom: 5px;">
+                    <h3 style="text-align: center;margin-bottom: 9.57px;">我还没想好</h3>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 0px;">
+                        <el-link :underline="false" @click=clickplayer(20)>翎夜折里</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 0px;">
+                        <el-link :underline="false" @click=clickplayer(21)>dreamer3</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 0px;">
+                        <el-link :underline="false" @click=clickplayer(22)>CherrY0v0</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 0px;">
+                        <el-link :underline="false" @click=clickplayer(23)>月色浓</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 0px;">
+                        <el-link :underline="false" @click=clickplayer(24)>椎名真白XD</el-link></h4>
+                </div></el-col><el-col :span="6"><div class="grid-content bg-purple" style="padding-bottom: 5px;">
+                    <h3 style="text-align: center;margin-bottom: 10px;">打的都对</h3>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(25)>長門_Yuki</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(26)>蛇神仙</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(27)>木林融</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(28)>十八岁女网友</el-link></h4>
+                </div></el-col><el-col :span="6"><div class="grid-content bg-purple" style="padding-bottom: 5px;">
+                    <h3 style="text-align: center;margin-bottom: 10px;">汪汪立大功</h3>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(29)>子衿子衿</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(30)>断痕c无殇</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(31)>秀千代EC</el-link></h4>
+                    <h4 class="css-1oney6p" style="text-align: center;margin-bottom: 5px;">
+                        <el-link :underline="false" @click=clickplayer(32)>这就是郭楠</el-link></h4>
+                </div></el-col>
+            </el-row></el-tab-pane>
+        <!--队伍排行-->
+            <el-tab-pane label="队伍排行" name="second">
+                <el-table
+                :data="teamData"
+                highlight-current-row
+                style="width: 100%"
+                :default-sort = "{prop: 'score', order: 'descending'}">
+                <el-table-column
+                type="index"
+                width="100">
+                </el-table-column>
+                <el-table-column
+                  prop="name"
+                  label="队伍名称"
+                  sortable
+                  width="200">
+                </el-table-column>
+                <el-table-column
+                  prop="score"
+                  label="总得分"
+                  sortable
+                  width="150">
+                </el-table-column>
+              </el-table>
+            </el-tab-pane>
+        <!--选手排行-->
+            <el-tab-pane label="选手排行" name="third">
+                <el-table
+                :data="playerData"
+                highlight-current-row
+                style="width: 100%"
+                :default-sort = "{prop: 'score', order: 'descending'}">
+                <el-table-column
+                type="index"
+                width="100">
+                </el-table-column>
+                <el-table-column
+                  prop="name"
+                  label="选手名称"
+                  sortable
+                  width="200">
+                <template slot-scope="scope">
+                    <el-link @click=clickplayer(scope.row.id) target="_blank" style="font-size: 15px;">{{scope.row.name}}</el-link>
+                </template>
+                </el-table-column>
+                <el-table-column
+                prop="team"
+                label="队伍"
+                sortable
+                width="200">
+              </el-table-column>
+                <el-table-column
+                  prop="score"
+                  label="总得分"
+                  sortable
+                  width="150">
+                </el-table-column>
+              </el-table>
+            </el-tab-pane>
+        <!--比赛章程-->
+            <el-tab-pane label="比赛章程" name="fourth">见群文件</el-tab-pane>
+        <!--比赛对局-->
+            <el-tab-pane label="比赛对局" name="fifth">
+                <el-table
+      :data="roundData"
+      style="width: 100%"
+      :default-sort = "{prop: 'date', order: 'descending'}">
+      <el-table-column
+        prop="date"
+        label="日期"
+        sortable
+        width="200">
+      </el-table-column>
+      <el-table-column
+        prop="result"
+        label="对局结果">
+      </el-table-column>
+      <el-table-column
+        prop="link"
+        label="对局链接"
+        width="100">
+        <template slot-scope="scope">
+            <el-link class="el-icon-share" :href="scope.row.link" target="_blank" style="font-size: 20px;"></el-link>
+        </template>
+      </el-table-column>
+    </el-table>
+            </el-tab-pane>
+    </el-tabs>
+
+
+
+<!--对话框显示player详细信息-->
+
+
+<el-dialog title=" " :visible.sync="dialogTableVisible">
+    <h4 class="MuiTypography-root MuiTypography-h4 css-z2oei0">{{dname}}</h4>
+    <h5 style="text-align: center;">{{tname}}</h5>
+    <h5 class="MuiTypography-root MuiTypography-h5 css-saabsf">统计数据</h5>
+    
+    <div id="main" ref="chart" style="width: 600px;height:220px; margin:auto;margin-top: 16px;"></div>
+
+    
+    <div class="MuiBox-root css-1u3q4k3">
+    <div class="MuiBox-root css-gg4vpm"><h6 class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-noWrap css-lrbsr7">出场次数</h6>
+        <p class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap css-1oney6p" aria-label="">{{d0}}</p>
+    </div>
+    <div class="MuiBox-root css-gg4vpm"><h6 class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-noWrap css-lrbsr7">总局数</h6>
+        <p class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap css-1oney6p" aria-label="">{{d1}}</p>
+    </div>
+    <div class="MuiBox-root css-gg4vpm"><h6 class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-noWrap css-lrbsr7">总得点</h6>
+        <p class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap css-1oney6p" aria-label="">{{d2}}</p>
+    </div>
+    <div class="MuiBox-root css-gg4vpm"><h6 class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-noWrap css-lrbsr7">和牌率</h6>
+        <p class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap css-1oney6p">{{d3}}</p>
+    </div>
+    <div class="MuiBox-root css-gg4vpm"><h6 class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-noWrap css-lrbsr7">放铳率</h6>
+        <p class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap css-1oney6p">{{d4}}</p>
+    </div>
+    <div class="MuiBox-root css-gg4vpm"><h6 class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-noWrap css-lrbsr7">自摸率</h6>
+        <p class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap css-1oney6p">{{d5}}</p>
+    </div>
+    <div class="MuiBox-root css-gg4vpm"><h6 class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-noWrap css-lrbsr7">副露率</h6>
+        <p class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap css-1oney6p">{{d6}}</p>
+    </div>
+    <div class="MuiBox-root css-gg4vpm"><h6 class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-noWrap css-lrbsr7">立直率</h6>
+        <p class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap css-1oney6p">{{d7}}</p>
+    </div>
+    <div class="MuiBox-root css-gg4vpm"><h6 class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-noWrap css-lrbsr7">平均顺位</h6>
+        <p class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap css-1oney6p" aria-label="">{{d8}}</p>
+    </div>
+    </div>
+    
+    <h5 class="MuiTypography-root MuiTypography-h5 css-saabsf">对局记录</h5>
+    <div>
+        <el-table
+          :data="playerroundData"
+          highlight-current-row
+          style="width: 100%"
+          :default-sort = "{prop: 'date', order: 'descending'}">
+          <el-table-column
+            prop="date"
+            label="日期"
+            sortable
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="place"
+            label="顺位"
+            sortable
+            width="100">
+          </el-table-column>
+          <el-table-column
+            prop="result"
+            label="对局结果">
+          </el-table-column>
+          <el-table-column
+            prop="link"
+            label="对局链接"
+            width="100">
+            <template slot-scope="scope">
+                <el-link class="el-icon-share" :href="scope.row.link" target="_blank" style="font-size: 20px;"></el-link>
+            </template>
+          </el-table-column>
+        </el-table>
+    </div>
+</el-dialog>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: function() {
+            return {
+                teamData: [{name: '国士无双',score: 363.0},{name: '雀山联合',score: 91.4},{name: '痛苦面具',score: -196.8},{name: '金场战神',score: 165.0},{name: '非日常麻雀结社',score: 58.9},{name: '我还没想好',score: -359.5},{name: '打的都对',score: -119.0},{name: '汪汪立大功',score: -3.0},],
+                playerData: [{name: '我爱手抓肉',score: 138.6,team: '国士无双',id:'0'},{name: '凛时、雨落',score: 84.0,team: '国士无双',id:'1'},{name: '南风y',score: 141.4,team: '国士无双',id:'2'},{name: '广羽缪璆',score: -1.0,team: '国士无双',id:'3'},{name: 'sengwei',score: 17.0,team: '雀山联合',id:'4'},{name: '雀实糊了啊',score: -59.2,team: '雀山联合',id:'5'},{name: 'koala1230',score: -30.2,team: '雀山联合',id:'6'},{name: '西电杨宗凯',score: 163.8,team: '雀山联合',id:'7'},{name: '慷忾',score: -39.0,team: '痛苦面具',id:'8'},{name: 'Flamingo_Li',score: -112.1,team: '痛苦面具',id:'9'},{name: '博士什么什么',score: -16.7,team: '痛苦面具',id:'10'},{name: '幸福的勇气',score: -29.0,team: '痛苦面具',id:'11'},{name: 'KissingLover',score: -18.6,team: '金场战神',id:'12'},{name: '奇奇、',score: -20.2,team: '金场战神',id:'13'},{name: '昌朋朋',score: 51.7,team: '金场战神',id:'14'},{name: 'しちゃんqwq',score: 152.1,team: '金场战神',id:'15'},{name: '唤灵',score: -45.1,team: '非日常麻雀结社',id:'16'},{name: '妄谓',score: 29.2,team: '非日常麻雀结社',id:'17'},{name: '20220101',score: 32.7,team: '非日常麻雀结社',id:'18'},{name: 'Paranoia零羽',score: 42.1,team: '非日常麻雀结社',id:'19'},{name: '翎夜折里',score: -0.6,team: '我还没想好',id:'20'},{name: 'dreamer3',score: 41.8,team: '我还没想好',id:'21'},{name: 'CherrY0v0',score: -91.1,team: '我还没想好',id:'22'},{name: '月色浓',score: -176.0,team: '我还没想好',id:'23'},{name: '椎名真白XD',score: -133.6,team: '我还没想好',id:'24'},{name: '長門_Yuki',score: 79.8,team: '打的都对',id:'25'},{name: '蛇神仙',score: 12.9,team: '打的都对',id:'26'},{name: '木林融',score: -44.4,team: '打的都对',id:'27'},{name: '十八岁女网友',score: -122.1,team: '打的都对',id:'28'},{name: '子衿子衿',score: -76.0,team: '汪汪立大功',id:'29'},{name: '断痕c无殇',score: 86.6,team: '汪汪立大功',id:'30'},{name: '秀千代EC',score: 6.7,team: '汪汪立大功',id:'31'},{name: '这就是郭楠',score: -20.3,team: '汪汪立大功',id:'32'},{name: 'AI',score: -45.2,team: '电脑',id:'33'},],
+                roundData: [{date: '2022-11-16 22:24:28',result:'妄谓(62.3)， 木林融(21.9)， 秀千代EC(-20.2)， 广羽缪璆(-64.0)',link:'https://game.maj-soul.net/1/?paipu=221116-03c71387-0bf8-40cd-b6f2-25e4063b6baf'},{date: '2022-11-16 22:04:40',result:'奇奇、(67.7)， 博士什么什么(6.3)， 雀实糊了啊(-26.2)， 月色浓(-47.8)',link:'https://game.maj-soul.net/1/?paipu=221116-a27ff68b-2a28-4e5d-9a45-f5de66b65346'},{date: '2022-11-16 20:43:35',result:'西电杨宗凯(47.1)， 慷忾(6.4)， 奇奇、(-13.7)， 翎夜折里(-39.8)',link:'https://game.maj-soul.net/1/?paipu=221116-c586238e-6743-4d1c-9ed5-d6bbd900bb0b'},{date: '2022-11-16 20:29:57',result:'唤灵(60.9)， 我爱手抓肉(11.4)， 長門_Yuki(-22.1)， 断痕c无殇(-50.2)',link:'https://game.maj-soul.net/1/?paipu=221116-5a813d93-a8c1-45e9-b086-09210b59d479'},{date: '2022-11-15 22:12:51',result:'昌朋朋(84.7)， 博士什么什么(15.1)， 十八岁女网友(-27.2)， Paranoia零羽(-72.6)',link:'https://game.maj-soul.net/1/?paipu=221115-7986f08f-4714-4950-97ab-0ca67b4a379f'},{date: '2022-11-15 21:47:04',result:'koala1230(64.9)， 断痕c无殇(13.1)， 我爱手抓肉(-21.5)， CherrY0v0(-56.5)',link:'https://game.maj-soul.net/1/?paipu=221115-26d7fff6-31f6-490d-b6dd-c7182999aa2e'},{date: '2022-11-15 20:59:02',result:'这就是郭楠(68.2)， sengwei(-1.7)， 南风y(-22.3)， 月色浓(-44.2)',link:'https://game.maj-soul.net/1/?paipu=221115-19c8d0c6-758c-401c-8cb3-58d200c437bc'},{date: '2022-11-15 20:43:04',result:'20220101(51.4)， 昌朋朋(9.9)， 蛇神仙(-18.8)， Flamingo_Li(-42.5)',link:'https://game.maj-soul.net/1/?paipu=221115-ace6c665-2447-43cd-b2a7-1b75ec840c2f'},{date: '2022-11-14 22:12:46',result:'我爱手抓肉(54.0)， 慷忾(11.9)， 木林融(-16.1)， sengwei(-49.8)',link:'https://game.maj-soul.net/1/?paipu=221114-29e8e9bd-a7c8-4eb6-bb80-a19fe7303259'},{date: '2022-11-14 21:59:49',result:'しちゃんqwq(69.6)， CherrY0v0(6.7)， 这就是郭楠(-17.1)， 妄谓(-59.2)',link:'https://game.maj-soul.net/1/?paipu=221114-43807442-490c-4e22-8336-b24708b7915e'},{date: '2022-11-14 21:03:04',result:'南风y(59.1)， 長門_Yuki(5.3)， 幸福的勇气(-18.9)， 雀实糊了啊(-45.5)',link:'https://game.maj-soul.net/1/?paipu=221114-1a04f9c8-ee53-4718-9e59-e545657fcc62'},{date: '2022-11-14 20:48:10',result:'秀千代EC(63.1)， しちゃんqwq(14.1)， 唤灵(-16.6)， 椎名真白XD(-60.6)',link:'https://game.maj-soul.net/1/?paipu=221114-43781c5a-c414-4028-8585-98efbd7fa88c'},{date: '2022-11-11 22:15:54',result:'西电杨宗凯(48.8)， 慷忾(8.3)， 長門_Yuki(-18.4)， 20220101(-38.7)',link:'https://game.maj-soul.net/1/?paipu=221111-5bf1a11e-3dc1-4eab-9223-7250e7bd54bf'},{date: '2022-11-11 21:55:55',result:'翎夜折里(55.2)， 凛时、雨落(7.9)， 这就是郭楠(-21.1)， KissingLover(-42.0)',link:'https://game.maj-soul.net/1/?paipu=221111-a7d50d6c-d54d-48dd-9a8b-b61a58a98d61'},{date: '2022-11-11 21:17:37',result:'Paranoia零羽(108.0)， 博士什么什么(13.0)， 電腦(-45.2)， koala1230(-75.8)',link:'https://game.maj-soul.net/1/?paipu=221111-a6f6b4ea-9617-49c3-bd16-6f007caf6e77'},{date: '2022-11-11 20:52:17',result:'KissingLover(52.3)， 南风y(7.3)， 翎夜折里(-16.0)， 子衿子衿(-43.6)',link:'https://game.maj-soul.net/1/?paipu=221111-342337b4-81f9-4f7a-9022-7000168baf13'},{date: '2022-11-10 22:22:23',result:'雀实糊了啊(73.1)， 妄谓(10.1)， dreamer3(-12.8)， 幸福的勇气(-70.4)',link:'https://game.maj-soul.net/1/?paipu=221110-376e9a6c-f322-42ea-8388-6b0b5f249e54'},{date: '2022-11-10 22:11:41',result:'秀千代EC(69.1)， 广羽缪璆(21.3)， 奇奇、(-17.9)， 十八岁女网友(-72.5)',link:'https://game.maj-soul.net/1/?paipu=221110-16a48df5-5458-4de8-915e-6a5031800458'},{date: '2022-11-10 21:23:05',result:'dreamer3(54.6)， 西电杨宗凯(4.5)， Flamingo_Li(-17.6)， 唤灵(-41.5)',link:'https://game.maj-soul.net/1/?paipu=221110-1d5b85a8-f1b9-49e4-9269-98ae74bfa6fa'},{date: '2022-11-10 20:40:05',result:'凛时、雨落(67.1)， 蛇神仙(21.6)， 子衿子衿(-32.4)， 奇奇、(-56.3)',link:'https://game.maj-soul.net/1/?paipu=221110-d3577a55-3dae-48cb-b825-92be4cc77beb'},{date: '2022-11-09 22:16:19',result:'sengwei(59.7)， 昌朋朋(7.4)， 广羽缪璆(-16.0)， 博士什么什么(-51.1)',link:'https://game.maj-soul.net/1/?paipu=221109-72e6391f-f7d5-40f2-abaf-99e39a354e84'},{date: '2022-11-09 21:46:08',result:'20220101(55.0)， 木林融(8.0)， CherrY0v0(-12.7)， 这就是郭楠(-50.3)',link:'https://game.maj-soul.net/1/?paipu=221109-30166719-2fc4-4b5d-8e85-901bf684af77'},{date: '2022-11-09 20:39:30',result:'南风y(81.9)， 慷忾(-3.5)， koala1230(-28.1)， 昌朋朋(-50.3)',link:'https://game.maj-soul.net/1/?paipu=221109-7c92ed35-b322-4e2a-92f6-89aaf57bfd88'},{date: '2022-11-09 20:37:12',result:'断痕c无殇(65.3)， Paranoia零羽(21.5)， CherrY0v0(-28.6)， 木林融(-58.2)',link:'https://game.maj-soul.net/1/?paipu=221109-0fed7421-ee3a-485b-844b-9aea18e00d79'},{date: '2022-11-08 22:07:52',result:'我爱手抓肉(94.7)， KissingLover(-6.9)， 月色浓(-27.2)， 雀实糊了啊(-60.6)',link:'https://game.maj-soul.net/1/?paipu=221108-2b063e15-8b92-4628-8fdd-8e8ce0651cd7'},{date: '2022-11-08 21:46:51',result:'断痕c无殇(58.4)， 妄谓(16.0)， 十八岁女网友(-22.4)， Flamingo_Li(-52.0)',link:'https://game.maj-soul.net/1/?paipu=221108-c08ee3c0-7182-4ef6-9d8d-154632d219d9'},{date: '2022-11-08 21:20:59',result:'西电杨宗凯(63.4)， 南风y(15.4)， KissingLover(-22.0)， 月色浓(-56.8)',link:'https://game.maj-soul.net/1/?paipu=221108-6354cd69-0509-4811-aa4d-a9641fac8d7f'},{date: '2022-11-08 20:41:59',result:'幸福的勇气(60.3)， 蛇神仙(10.1)， 秀千代EC(-22.5)， 唤灵(-47.9)',link:'https://game.maj-soul.net/1/?paipu=221108-92bf9ca4-4241-4482-a793-10e635d47e15'},{date: '2022-11-07 22:14:52',result:'广羽缪璆(57.7)， しちゃんqwq(8.7)， 椎名真白XD(-19.2)， 慷忾(-47.2)',link:'https://game.maj-soul.net/1/?paipu=221107-b87d276a-098a-4a0b-ba19-6aa72bc66381'},{date: '2022-11-07 21:56:41',result:'長門_Yuki(61.2)， sengwei(8.8)， 20220101(-25.0)， 秀千代EC(-45.0)',link:'https://game.maj-soul.net/1/?paipu=221107-33ccaba3-2285-455f-a8b8-9d5ef750bce2'},{date: '2022-11-07 21:19:26',result:'しちゃんqwq(59.7)， 凛时、雨落(9.0)， 慷忾(-14.9)， 椎名真白XD(-53.8)',link:'https://game.maj-soul.net/1/?paipu=221107-a938739b-5992-4806-8b7b-c759bbd4509d'},{date: '2022-11-07 20:49:42',result:'長門_Yuki(53.8)， koala1230(8.8)， Paranoia零羽(-14.8)， 秀千代EC(-47.8)',link:'https://game.maj-soul.net/1/?paipu=221107-c53f4d83-8e38-4980-bc21-8e80981054b6'},],
+                playerroundData: [],
+                playerdetailData: [[4, '我爱手抓肉', '国士无双', '2', '1', '1', '0', '4', '46', '138.6', '26.09%', '13.04%', '41.67%', '17.39%', '28.26%', '1.75'], [3, '凛时、雨落', '国士无双', '1', '2', '0', '0', '3', '39', '84.0', '25.64%', '7.69%', '40.0%', '20.51%', '17.95%', '1.67'], [5, '南风y', '国士无双', '2', '2', '1', '0', '5', '55', '141.4', '29.09%', '12.73%', '50.0%', '30.91%', '29.09%', '1.8'], [4, '广羽缪璆', '国士无双', '1', '1', '1', '1', '4', '62', '-1.0', '22.58%', '11.29%', '21.43%', '22.58%', '20.97%', '2.5'], [4, 'sengwei', '雀山联合', '1', '2', '0', '1', '4', '51', '17.0', '19.61%', '9.8%', '40.0%', '31.37%', '15.69%', '2.25'], [4, '雀实糊了啊', '雀山联合', '1', '0', '1', '2', '4', '48', '-59.2', '25.0%', '10.42%', '25.0%', '35.42%', '14.58%', '3.0'], [4, 'koala1230', '雀山联合', '1', '1', '1', '1', '4', '52', '-30.2', '19.23%', '13.46%', '40.0%', '23.08%', '15.38%', '2.5'], [4, '西电杨宗凯', '雀山联合', '3', '1', '0', '0', '4', '47', '163.8', '23.4%', '8.51%', '27.27%', '34.04%', '21.28%', '1.25'], [6, '慷忾', '痛苦面具', '0', '4', '1', '1', '6', '70', '-39.0', '22.86%', '11.43%', '43.75%', '24.29%', '21.43%', '2.5'], [3, 'Flamingo_Li', '痛苦面具', '0', '0', '1', '2', '3', '34', '-112.1', '14.71%', '11.76%', '20.0%', '32.35%', '8.82%', '3.67'], [4, '博士什么什么', '痛苦面具', '0', '3', '0', '1', '4', '59', '-16.7', '20.34%', '8.47%', '50.0%', '23.73%', '20.34%', '2.5'], [3, '幸福的勇气', '痛苦面具', '1', '0', '1', '1', '3', '31', '-29.0', '16.13%', '29.03%', '40.0%', '22.58%', '19.35%', '2.67'], [4, 'KissingLover', '金场战神', '1', '1', '1', '1', '4', '46', '-18.6', '17.39%', '8.7%', '50.0%', '21.74%', '19.57%', '2.5'], [4, '奇奇、', '金场战神', '1', '0', '2', '1', '4', '54', '-20.2', '18.52%', '12.96%', '40.0%', '31.48%', '20.37%', '2.75'], [4, '昌朋朋', '金场战神', '1', '2', '0', '1', '4', '49', '51.7', '22.45%', '18.37%', '63.64%', '32.65%', '18.37%', '2.25'], [4, 'しちゃんqwq', '金场战神', '2', '2', '0', '0', '4', '50', '152.1', '20.0%', '8.0%', '50.0%', '32.0%', '18.0%', '1.5'], [4, '唤灵', '非日常麻雀结社', '1', '0', '1', '2', '4', '45', '-45.1', '22.22%', '17.78%', '60.0%', '15.56%', '28.89%', '3.0'], [4, '妄谓', '非日常麻雀结社', '1', '2', '0', '1', '4', '52', '29.2', '17.31%', '7.69%', '22.22%', '34.62%', '15.38%', '2.25'], [4, '20220101', '非日常麻雀结社', '2', '0', '1', '1', '4', '40', '32.7', '22.5%', '17.5%', '33.33%', '47.5%', '30.0%', '2.25'], [4, 'Paranoia零羽', '非日常麻雀结社', '1', '1', '1', '1', '4', '53', '42.1', '18.87%', '9.43%', '20.0%', '37.74%', '20.75%', '2.5'], [3, '翎夜折里', '我还没想好', '1', '0', '1', '1', '3', '32', '-0.6', '21.88%', '18.75%', '14.29%', '18.75%', '28.12%', '2.67'], [2, 'dreamer3', '我还没想好', '1', '0', '1', '0', '2', '26', '41.8', '19.23%', '11.54%', '20.0%', '34.62%', '19.23%', '2.0'], [4, 'CherrY0v0', '我还没想好', '0', '1', '2', '1', '4', '43', '-91.1', '13.95%', '18.6%', '50.0%', '18.6%', '20.93%', '3.0'], [4, '月色浓', '我还没想好', '0', '0', '1', '3', '4', '49', '-176.0', '8.16%', '12.24%', '75.0%', '16.33%', '12.24%', '3.75'], [3, '椎名真白XD', '我还没想好', '0', '0', '1', '2', '3', '37', '-133.6', '18.92%', '27.03%', '57.14%', '16.22%', '35.14%', '3.67'], [5, '長門_Yuki', '打的都对', '2', '1', '2', '0', '5', '54', '79.8', '20.37%', '1.85%', '54.55%', '37.04%', '12.96%', '2.0'], [3, '蛇神仙', '打的都对', '0', '2', '1', '0', '3', '31', '12.9', '29.03%', '22.58%', '66.67%', '16.13%', '29.03%', '2.33'], [4, '木林融', '打的都对', '0', '2', '1', '1', '4', '52', '-44.4', '30.77%', '15.38%', '37.5%', '15.38%', '28.85%', '2.75'], [3, '十八岁女网友', '打的都对', '0', '0', '2', '1', '3', '40', '-122.1', '25.0%', '15.0%', '20.0%', '25.0%', '17.5%', '3.33'], [2, '子衿子衿', '汪汪立大功', '0', '0', '1', '1', '2', '22', '-76.0', '9.09%', '13.64%', '50.0%', '9.09%', '22.73%', '3.5'], [4, '断痕c无殇', '汪汪立大功', '2', '1', '0', '1', '4', '39', '86.6', '28.21%', '10.26%', '27.27%', '10.26%', '33.33%', '2.0'], [6, '秀千代EC', '汪汪立大功', '2', '0', '2', '2', '6', '82', '6.7', '17.07%', '10.98%', '14.29%', '36.59%', '20.73%', '2.67'], [4, '这就是郭楠', '汪汪立大功', '1', '0', '2', '1', '4', '45', '-20.3', '22.22%', '15.56%', '20.0%', '28.89%', '20.0%', '2.75'], [1, 'AI', '电脑', '0', '0', '1', '0', '1', '17', '-45.2', '0.0%', '17.65%', '0.0%', '0.0%', '0.0%', '3.0']],
+                d0:0,
+                d1:0,
+                d2:0,
+                d3:0,
+                d4:0,
+                d5:0,
+                d6:0,
+                d7:0,
+                d8:0,
+                dname:0,
+                tname:0,
+                d11:0,
+                d12:0,
+                d13:0,
+                d14:0,
+                
+                dialogTableVisible: false,
+            activeName: 'first'
+            };
+        },
+         methods: {
+            handleClick(tab, event) {
+                console.log(tab, event);
+            },
+            clickplayer(id){
+                console.log(id)
+                id=parseInt(id)
+                this.d0=this.playerdetailData[id][0]
+                this.d1=this.playerdetailData[id][8]
+                this.d2=this.playerdetailData[id][9]
+                this.d3=this.playerdetailData[id][10]
+                this.d4=this.playerdetailData[id][11]
+                this.d5=this.playerdetailData[id][12]
+                this.d6=this.playerdetailData[id][13]
+                this.d7=this.playerdetailData[id][14]
+                this.d8=this.playerdetailData[id][15]
+                this.dname=this.playerdetailData[id][1]
+                this.tname=this.playerdetailData[id][2]
+                this.d11=this.playerdetailData[id][3]
+                this.d12=this.playerdetailData[id][4]
+                this.d13=this.playerdetailData[id][5]
+                this.d14=this.playerdetailData[id][6]
+                this.gen_player_round_data(id)
+                this.dialogTableVisible=!this.dialogTableVisible
+            },
+            gen_player_round_data(id){
+                var name=this.playerdetailData[id][1]
+                var res =new Array()
+                for(i=0;i<this.roundData.length;i++){
+                    if(this.roundData[i]['result'].indexOf(name)!=-1){
+                        var split=this.roundData[i]['result'].split('，')
+                        var place=''
+                        if(split[0].indexOf(name)!=-1) place='一'
+                        if(split[1].indexOf(name)!=-1) place='二'
+                        if(split[2].indexOf(name)!=-1) place='三'
+                        if(split[3].indexOf(name)!=-1) place='四'
+                        this.roundData[i]['place']=place
+                        res.push(this.roundData[i])
+                    }
+                }
+                this.playerroundData=res
+                console.log(res[0])
+            },
+            initChart(d1,d2,d3,d4){
+                // 基于准备好的dom，初始化echarts实例
+                //console.log(this.$refs.chart)
+                let myChart = echarts.init(this.$refs['chart']);
+                
+
+                // 指定图表的配置项和数据
+                var option = {
+                    series: [
+                        {
+                        type: 'pie',
+                        label: {
+                            formatter: '{name|{b}}\n{value|{d}%}',
+                            rich: {
+                                time: {
+                                fontSize: 10,
+                                color: '#999'
+                                }
+                            }
+                        },
+                    color: ['#28A745','#17A2B8','#E5D96C','#DC3848'],
+                    data: [
+                            {value: d1,name: '一位'},
+                            {value: d2,name: '二位'},
+                            {value: d3,name: '三位'},
+                            {value: d4,name: '四位'},
+                        ],
+                        radius: '75%'
+                        }
+                    ]
+                    };
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            },
+        },
+        updated () {
+            this.$nextTick(()=>{this.initChart(this.d11,this.d12,this.d13,this.d14)} )
+        },
+        
+    })
+
+
+
+
+</script>
+
+
+</body>
+
+<style>
+    .el-row {
+      margin-bottom: 20px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .el-col {
+      border-radius: 4px;
+    }
+    .bg-purple-dark {
+      background: #99a9bf;
+    }
+    .bg-purple {
+      background: #d3dce6;
+    }
+    .bg-purple-light {
+      background: #e5e9f2;
+    }
+    .grid-content {
+      border-radius: 4px;
+      min-height: 36px;
+    }
+    .row-bg {
+      padding: 10px 0;
+      background-color: #f9fafc;
+    }
+    .css-1oney6p {
+    margin: 0px;
+    font-family: Roboto, "Microsoft YaHei", Meiryo, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.25;
+    text-align: right;
+    }
+    .css-z2oei0 {
+        margin: 0px;
+        margin-top: 50px;
+        font-family: Roboto, "Microsoft YaHei", Meiryo, sans-serif;
+        font-weight: 400;
+        font-size: 2.2267rem;
+        line-height: 1.235;
+        text-align: center;
+    }
+    .app{
+    margin: auto;
+    width: 1000px;
+    }
+    .css-saabsf {
+    margin: 0px 0px 16px;
+    margin-top: 32px;
+    margin-bottom: 0px;
+    font-family: Roboto, "Microsoft YaHei", Meiryo, sans-serif;
+    font-weight: 400;
+    font-size: 1.6867rem;
+    line-height: 1.334;
+    text-align: center;
+}
+.css-1u3q4k3 {
+    grid-template-columns: repeat(2, min-content);
+}
+
+.css-1u3q4k3, .css-1u3q4k3 * {
+    user-select: none;
+}
+
+.css-1u3q4k3 {
+    display: grid;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    gap: 12px;
+    /*grid-template-columns: 1fr;*/
+    width: 500px;
+    margin: auto;
+    margin-top: 0px;
+}
+
+.css-gg4vpm {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 150px;
+}
+
+.css-lrbsr7 {
+    margin: 0px;
+    font-family: Roboto, "Microsoft YaHei", Meiryo, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1.25;
+    text-overflow: initial;
+}
+
+  </style>
+</html>
