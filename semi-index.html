@@ -268,6 +268,12 @@
       </el-table-column>
     </el-table>
             </el-tab-pane>
+        <!--其它赛程-->
+        <el-tab-pane label="其它赛程" name="sixth">
+            <el-link :underline="true" @click=toregular() class="MuiTypography-root MuiTypography-h4 css-z2oei0" style="font-size: 18px;margin-bottom: 8px;">1.常规赛</el-link>
+            <h4></h4>
+            <el-link :underline="true" @click=tosemifinal() class="MuiTypography-root MuiTypography-h4 css-z2oei0" style="font-size: 18px;margin-bottom: 8px;">2.半决赛</el-link>
+        </el-tab-pane>
     </el-tabs>
 
 
@@ -354,7 +360,7 @@
         el: '#app',
         data: function() {
             return {
-                update_time: '2022-12-25 20:03:44',
+                update_time: '2022-12-25 20:29:17',
                 teamData: [{name: '国士无双',score: 299.4},{name: '雀山联合',score: 384.9},{name: '痛苦面具',score: -162.5},{name: '金场战神',score: -30.8},{name: '非日常麻雀结社',score: 41.2},{name: '我还没想好',score: -99999.0},{name: '打的都对',score: -99999.0},{name: '汪汪立大功',score: 48.9},],
                 playerData: [{name: '我爱手抓肉',score: 0,team: '国士无双',id:'0'},{name: '凛时、雨落',score: 0,team: '国士无双',id:'1'},{name: '南风y',score: 0,team: '国士无双',id:'2'},{name: '广羽缪璆',score: 0,team: '国士无双',id:'3'},{name: 'sengwei',score: 0,team: '雀山联合',id:'4'},{name: '雀实糊了啊',score: 0,team: '雀山联合',id:'5'},{name: 'koala1230',score: 0,team: '雀山联合',id:'6'},{name: '西电杨宗凯',score: 0,team: '雀山联合',id:'7'},{name: '慷忾',score: 0,team: '痛苦面具',id:'8'},{name: 'Flamingo_Li',score: 0,team: '痛苦面具',id:'9'},{name: '博士什么什么',score: 0,team: '痛苦面具',id:'10'},{name: '幸福的勇气',score: 0,team: '痛苦面具',id:'11'},{name: 'KissingLover',score: 0,team: '金场战神',id:'12'},{name: '奇奇、',score: 0,team: '金场战神',id:'13'},{name: '昌朋朋',score: 0,team: '金场战神',id:'14'},{name: 'しちゃんqwq',score: 0,team: '金场战神',id:'15'},{name: '唤灵',score: 0,team: '非日常麻雀结社',id:'16'},{name: '妄谓',score: 0,team: '非日常麻雀结社',id:'17'},{name: '20220101',score: 0,team: '非日常麻雀结社',id:'18'},{name: 'Paranoia零羽',score: 0,team: '非日常麻雀结社',id:'19'},{name: '子衿子衿',score: 0,team: '汪汪立大功',id:'20'},{name: '断痕c无殇',score: 0,team: '汪汪立大功',id:'21'},{name: '秀千代EC',score: 0,team: '汪汪立大功',id:'22'},{name: '这就是郭楠',score: 0,team: '汪汪立大功',id:'23'},{name: 'AI',score: 0,team: '电脑',id:'24'},],
                 roundData: [],
@@ -470,6 +476,12 @@
                 }
 
             },
+            tosemifinal(){
+                window.location.href = "https://123000001212.github.io/DLeague/semi-index"
+            },
+            toregular(){
+                window.location.href = "https://123000001212.github.io/DLeague"
+            }
         },
         created(){
             this.addplayerdata()
