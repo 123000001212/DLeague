@@ -12,8 +12,9 @@
 </head>
 <body>
     <div id="app" class="app">
-    <h4 class="MuiTypography-root MuiTypography-h4 css-z2oei0" style="margin-bottom: 32px;margin-top: 32px;">第一届电League</h4>
+    <h4 class="MuiTypography-root MuiTypography-h4 css-z2oei0" style="margin-bottom: 32px;margin-top: 32px;">第一届电League-常规赛</h4>
     <h4 class="MuiTypography-root MuiTypography-h4 css-z2oei0" style="font-size: 10px;margin-bottom: 8px;">注：本页面为非官方统计数据 | 数据更新时间：{{update_time}}</h4>
+    
 
     <el-tabs v-model="activeName" @tab-click="handleClick">
         <!--参赛队伍-->
@@ -268,6 +269,12 @@
       </el-table-column>
     </el-table>
             </el-tab-pane>
+        <!--其它赛程-->
+        <el-tab-pane label="其它赛程" name="sixth">
+            <el-link :underline="true" @click=toregular() class="MuiTypography-root MuiTypography-h4 css-z2oei0" style="font-size: 18px;margin-bottom: 8px;">1.常规赛</el-link>
+            <h4></h4>
+            <el-link :underline="true" @click=tosemifinal() class="MuiTypography-root MuiTypography-h4 css-z2oei0" style="font-size: 18px;margin-bottom: 8px;">2.半决赛</el-link>
+        </el-tab-pane>
     </el-tabs>
 
 
@@ -470,6 +477,12 @@
                 }
 
             },
+            tosemifinal(){
+                window.location.href = "https://123000001212.github.io/DLeague/semi-index"
+            },
+            toregular(){
+                window.location.href = "https://123000001212.github.io/DLeague"
+            }
         },
         created(){
             this.addplayerdata()
