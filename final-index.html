@@ -277,6 +277,8 @@
             <el-link :underline="true" @click=tosemifinal() class="MuiTypography-root MuiTypography-h4 css-z2oei0" style="font-size: 18px;margin-bottom: 8px;">2.半决赛</el-link>
             <h4></h4>
             <el-link :underline="true" @click=tofinal() class="MuiTypography-root MuiTypography-h4 css-z2oei0" style="font-size: 18px;margin-bottom: 8px;">3.决赛</el-link>
+            <h4></h4>
+            <el-link :underline="true" @click=toall() class="MuiTypography-root MuiTypography-h4 css-z2oei0" style="font-size: 18px;margin-bottom: 8px;">4.全部赛程</el-link>
         </el-tab-pane>
     </el-tabs>
 
@@ -488,6 +490,9 @@
             },
             toregular(){
                 window.location.href = "https://123000001212.github.io/DLeague"
+            },
+            toall(){
+                window.location.href = "https://123000001212.github.io/DLeague/all"
             }
         },
         created(){
